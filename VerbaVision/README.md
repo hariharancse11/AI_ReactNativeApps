@@ -6,10 +6,10 @@ The generated text is displayed in the console with a typing effect, and users c
 
 Installation:
 1. Clone the repository:
-   $ git clone https://github.com/your-username/your-repo.git
+   $ git clone https://github.com/hariharancse11/AI_ReactNativeApps
 
 2. Install the dependencies:
-   $ cd your-repo
+   $ cd AI_ReactNativeApps
    $ npm install
 
 Usage:
@@ -35,5 +35,17 @@ Dependencies:
 Contributing:
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please create an issue or submit a pull request.
 
-License:
-[Insert License information]
+React Native Text Generation App
+
+  ______        __                                  __   __    __                 
+ /      \      |  \                                |  \ |  \  |  \                
+|  $$$$$$\  ____| $$ _______   ______   __    __  _| $$_| $$  | $$____    ______  
+| $$___\$$ /      $$|       \ /      \ |  \  |  \|   $$ \ $$  | $$    \  /      \ 
+ \$$    \ |  $$$$$$$| $$$$$$$|  $$$$$$\| $$  | $$ \$$$$$$ \$$  | $$$$$$$\|  $$$$$$\
+ _\$$$$$$\| $$  | $$| $$      | $$  | $$| $$  | $$  | $$ __      | $$  | $$| $$   \$$
+|  \__| $$| $$__/ $$| $$_____ | $$__/ $$| $$__/ $$  | $$|  \     | $$__/ $$| $$      
+ \$$    $$ \$$    $$| $$     \ \$$    $$| $$    $$   \$$  $$ __ | $$    $$| $$      
+  \$$$$$$   \$$$$$$$ \$$$$$$$$  \$$$$$$  \$$$$$$     \$$$$$$$|  \ \$$$$$$$ \$$      
+                                                               \$$                    
+This is a console-based React Native app that generates text using a backend API. The app allows users to enter a text prompt and the desired number of words, and then it fetches the generated text from the API.
+
