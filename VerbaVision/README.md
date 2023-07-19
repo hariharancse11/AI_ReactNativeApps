@@ -49,3 +49,4 @@ React Native Text Generation App
                                                                \$$                    
 This is a console-based React Native app that generates text using a backend API. The app allows users to enter a text prompt and the desired number of words, and then it fetches the generated text from the API.
 
+![App Screenshot](./screenshot.jpg)
