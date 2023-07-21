@@ -43,14 +43,14 @@ def send_otp(request):
         return Response({
             'Status': True,
             'Msg': 'OTP sent successfully',
-            'Data': None
+            'Data': otp
         })
 
     except Exception as e:
         return Response({
         'Status': True,
         'Msg': f'Failed to send email: {str(e)}',
-        'Data': otp
+        'Data': None
     })
 
 
