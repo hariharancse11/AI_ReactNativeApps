@@ -32,6 +32,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.core.mail import send_mail
+import random
+import sib_api_v3_sdk
 SECRET_KEY = ''
 def generate_secretkey():
     return pyotp.random_base32()
