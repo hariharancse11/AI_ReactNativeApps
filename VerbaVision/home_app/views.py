@@ -109,7 +109,7 @@ def send_otp(request):
             'Data': None
         })
 
-    except requests.RequestException as e:
+    except Exception as e:
         return Response({
             'Status': False,
             'Msg': f'Failed to send email: {str(e)}',
