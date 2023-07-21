@@ -47,12 +47,13 @@ def send_otp(request):
     otp = totp.now()
     from_email = 'hariharan.sekar@ionidea.com'  # request.data.get('from_email')
     to_email = request.data.get('to_email')
+    print(otp)
 
     try:
         return Response({
             'Status': True,
             'Msg': 'OTP sent successfully',
-            'Data': otp
+            'Data': None
         })
 
     except Exception as e:
