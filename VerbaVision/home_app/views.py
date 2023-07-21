@@ -26,50 +26,69 @@ def generate_text(request):
 
     return Response(res)
 
-
-import random
-import sib_api_v3_sdk
+import time
+import pyotp
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from django.core.mail import send_mail
+SECRET_KEY = ''
+def generate_secretkey():
+    return pyotp.random_base32()
 
 @api_view(['POST'])
 def send_otp(request):
+    generate_secretkey()
 
-    
-    otp = str(random.randint(100000, 999999))  # Generate a random 6-digit OTP
-
-    
+    # Generate TOTP based on the secret key
+    totp = pyotp.TOTP(SECRET_KEY)
+    otp = totp.now()
+    from_email = 'hariharan.sekar@ionidea.com'  # request.data.get('from_email')
+    to_email = request.data.get('to_email')
     try:
-        request.session['otp'] = otp
-        print(request.session['otp'])
         return Response({
             'Status': True,
             'Msg': 'OTP sent successfully',
-            'Data': otp
+            'Data': None
         })
 
     except Exception as e:
         return Response({
-        'Status': True,
-        'Msg': f'Failed to send email: {str(e)}',
-        'Data': None
-    })
-
+            'Status': False,
+            'Msg': f'Failed to send email: {str(e)}',
+            'Data': None
+        })
 
 @api_view(['POST'])
 def validate_otp(request):
+    # Generate TOTP based on the secret key
+    totp = pyotp.TOTP(SECRET_KEY)
+
+    # Get the current time on the server
+    current_time = int(time.time())
+
+    # Define the time step and tolerance (30 seconds in this example)
+    time_step = 30
+    tolerance = 1
+
+    # Generate OTPs for the current time and within the tolerance window
+    otp_generated = []
+    for i in range(-tolerance, tolerance + 1):
+        otp_generated.append(totp.at(current_time + i * time_step))
+    # Validate the OTP entered by the user
     try:
         otp = str(request.data.get('otp'))
         email = str(request.data.get('email'))
         new_password = str(request.data.get('new_password'))
-        stored_otp = str(request.session.get('otp'))
-        print(otp,stored_otp)
-        if otp and stored_otp and otp == stored_otp:
+        #print(otp, totp.now())
+
+        if otp in otp_generated:
             # Correct OTP
             # if serializer.is_valid():
             #     user = User.objects.get(email=serializer.validated_data['email'])
             #     serializer.validated_data['password'] = hashed_password
             #     serializer.update(user, serializer.validated_data)
 
-            del request.session['otp']  # Remove the OTP from the session
             return Response({
                 'Status': True,
                 'Msg': f'Password reset successful',
