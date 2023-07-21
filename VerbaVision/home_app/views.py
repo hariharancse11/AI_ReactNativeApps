@@ -69,7 +69,7 @@ def send_otp(request):
     #     })
 
     configuration = sib_api_v3_sdk.Configuration()
-    configuration.api_key['api-key'] = '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'
+    configuration.api_key['api-key'] = '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'
 
     api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
     subject = "CRM App Password Reset"
