@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home_app',
     'rest_framework',
     'django_otp',
+    'django_otp.plugins.otp_totp'
 
     'django.contrib.admin',
     'django.contrib.auth',
