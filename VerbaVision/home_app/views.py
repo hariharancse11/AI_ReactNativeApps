@@ -39,7 +39,7 @@ def send_otp(request):
     
     try:
         request.session['otp'] = otp
-        # print(request.session['otp'])
+        print(request.session['otp'])
         return Response({
             'Status': True,
             'Msg': 'OTP sent successfully',
@@ -61,7 +61,7 @@ def validate_otp(request):
         email = str(request.data.get('email'))
         new_password = str(request.data.get('new_password'))
         stored_otp = str(request.session.get('otp'))
-        #print(otp,stored_otp)
+        print(otp,stored_otp)
         if otp and stored_otp and otp == stored_otp:
             # Correct OTP
             # if serializer.is_valid():
