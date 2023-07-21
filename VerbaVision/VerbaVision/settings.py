@@ -127,3 +127,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-relay.brevo.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True  # Set this to False if your SMTP server uses SSL
+EMAIL_HOST_USER = 'hariharan.sekar@ionidea.com'
+EMAIL_HOST_PASSWORD = 'rOA5IyhbnHBLGWC1'
+DEFAULT_FROM_EMAIL = 'hariharan.sekar@ionidea.com'  # The default 'from' email address
